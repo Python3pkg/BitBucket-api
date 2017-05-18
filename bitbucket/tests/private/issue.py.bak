@@ -17,15 +17,15 @@ class IssueAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
         self.assertFalse(success)
         # Test create an issue
         success, result = self.bb.issue.create(
-            title='Test Issue Bitbucket API',
-            content='Test Issue Bitbucket API',
+            title=u'Test Issue Bitbucket API',
+            content=u'Test Issue Bitbucket API',
             responsible=self.bb.username,
-            status='new',
-            kind='bug',)
+            status=u'new',
+            kind=u'bug',)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
         # Save latest issue's id
-        self.issue_id = result['local_id']
+        self.issue_id = result[u'local_id']
 
     def _get_issue(self):
         # Test get an issue.
@@ -43,7 +43,7 @@ class IssueAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
             content=test_content)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
-        self.assertEqual(test_content, result['content'])
+        self.assertEqual(test_content, result[u'content'])
 
     def _delete_issue(self):
         # Test issue delete.

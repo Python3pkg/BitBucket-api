@@ -18,12 +18,12 @@ class ServiceAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
             self.bb.service.create()
         # Test create an service
         success, result = self.bb.service.create(
-            service='POST',
+            service=u'POST',
             URL=httpbin + 'post',)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
         # Save latest service's id
-        self.service_id = result['id']
+        self.service_id = result[u'id']
 
     def _get_service(self):
         # Test get an service.
@@ -42,7 +42,7 @@ class ServiceAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
             URL=test_url)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
-        self.assertEqual(test_url, result['service']['fields'][0]['value'])
+        self.assertEqual(test_url, result[u'service'][u'fields'][0][u'value'])
 
     def _delete_service(self):
         # Test service delete.

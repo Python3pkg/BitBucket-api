@@ -106,7 +106,7 @@ class Repository(object):
         if self.bitbucket.repo_tree:
             with NamedTemporaryFile(delete=False) as archive:
                 with ZipFile(archive, 'w') as zip_archive:
-                    for name, file in list(self.bitbucket.repo_tree.items()):
+                    for name, file in self.bitbucket.repo_tree.items():
                         with NamedTemporaryFile(delete=False) as temp_file:
                             temp_file.write(file.encode('utf-8'))
                         zip_archive.write(temp_file.name, prefix + name)

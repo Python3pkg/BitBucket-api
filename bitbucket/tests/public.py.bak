@@ -5,8 +5,8 @@ from bitbucket.bitbucket import Bitbucket
 
 
 httpbin = 'http://httpbin.org/'
-foo = 'foo'
-bar = 'bar'
+foo = u'foo'
+bar = u'bar'
 username = 'baptistemillou'
 
 

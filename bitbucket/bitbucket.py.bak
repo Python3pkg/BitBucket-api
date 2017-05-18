@@ -4,7 +4,7 @@
 __all__ = ['Bitbucket', ]
 
 try:
-    from urllib.parse import parse_qs
+    from urlparse import parse_qs
 except ImportError:
     from urllib.parse import parse_qs
 
@@ -82,8 +82,8 @@ class Bitbucket(object):
     @username.setter
     def username(self, value):
         try:
-            if isinstance(value, str):
-                self._username = str(value)
+            if isinstance(value, basestring):
+                self._username = unicode(value)
         except NameError:
             self._username = value
 
@@ -102,8 +102,8 @@ class Bitbucket(object):
     @password.setter
     def password(self, value):
         try:
-            if isinstance(value, str):
-                self._password = str(value)
+            if isinstance(value, basestring):
+                self._password = unicode(value)
         except NameError:
             self._password = value
 
@@ -125,8 +125,8 @@ class Bitbucket(object):
             self._repo_slug = None
         else:
             try:
-                if isinstance(value, str):
-                    value = str(value)
+                if isinstance(value, basestring):
+                    value = unicode(value)
             except NameError:
                 pass
             value = value.lower()

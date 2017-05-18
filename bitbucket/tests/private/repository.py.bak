@@ -56,7 +56,7 @@ class RepositoryAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
         success, result = self.bb.repository.update(description=test_description)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
-        self.assertEqual(test_description, result['description'])
+        self.assertEqual(test_description, result[u'description'])
 
     def test_delete(self):
         """ Test repository deletion."""

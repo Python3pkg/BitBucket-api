@@ -45,7 +45,7 @@ class AuthenticatedBitbucketTest(unittest.TestCase):
                 token_is_valid = False
                 while not token_is_valid:
                     # Ensure a valid oauth_verifier before starting tests
-                    oauth_verifier = input('Enter verifier from url [oauth_verifier]')
+                    oauth_verifier = raw_input('Enter verifier from url [oauth_verifier]')
                     token_is_valid = bool(oauth_verifier and self.bb.verify(oauth_verifier)[0])
                     if not token_is_valid:
                         print('Invalid oauth_verifier, please try again or quit with CONTROL-C.')
@@ -58,7 +58,7 @@ class AuthenticatedBitbucketTest(unittest.TestCase):
         success, result = self.bb.repository.create(TEST_REPO_SLUG, has_issues=True)
         # Save repository's id
         assert success
-        self.bb.repo_slug = result['slug']
+        self.bb.repo_slug = result[u'slug']
 
     def tearDown(self):
         """Destroying the Bitbucket..."""

@@ -19,11 +19,11 @@ class SSHAuthenticatedMethodsTest(AuthenticatedBitbucketTest):
         success, result = self.bb.ssh.create(
             key=r'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDftGyHMtFSVkIxESnJQQDGy+uXT3LuUqkaLKKjb+WeXxJEabVyur8z4urzRQyHSenrrAyd9GTLtx1zmxCn7LP626ztrIYqjdK2WBhx+wjBsF39+DNvokwLAzHpQVZnywZZXaf8aeKdwiLmUpBSpfk7dSYsjQvfkmsjBpDJz9z9NsOzVK3fIVjEdnu7nPgINiJ/DlqB9zfdXpu0o98tH/WfhDo+PvkIWYrkH/cms9LIsc4zNZIKJF6i0hDAAnC0V27GQKRXpXcnj32PZvk2eXF8TxiO0rGjkEBSd1J638GHvgLI9d8iQUAVIOm69x/trQhUKcGlcHcbU0VzaFaIYawr baptiste@smoothie-creative.com\
 ',
-            label='test key',)
+            label=u'test key',)
         self.assertTrue(success)
         self.assertIsInstance(result, dict)
         # Save latest ssh's id
-        self.ssh_id = result['pk']
+        self.ssh_id = result[u'pk']
 
     def _get_ssh(self):
         # Test get an ssh.
